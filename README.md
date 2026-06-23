@@ -1,25 +1,68 @@
-# CODING AGENTS: READ THIS FIRST
+# 🐺 MJ App — Loup-Garou de Thiercelieux
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Application d'aide au **Maître du Jeu** pour le jeu de société *Loup-Garou de Thiercelieux*.  
+Gère l'ordre des nuits, les actions des rôles, les votes, les conditions de victoire et les sons d'ambiance.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Fonctionnalités
 
-## What you should do — IMPORTANT
+- **22 rôles** pris en charge : Villageois, Loups-Garous, Sorcière, Voyante, Chasseur, Cupidon, Fossoyeur, Joueur de Flûte, et bien d'autres
+- **Phase nuit** : ordre automatique, actions par rôle (attaque, potions, révélations, transformations…)
+- **Phase jour** : récap de l'aube, détection des victoires, vote et élimination
+- **Conditions de victoire** : détection automatique (Village, Loups, Amoureux, Joueur de Flûte, Loup Blanc, Ancien)
+- **Sons d'ambiance** : bibliothèque audio personnalisable, profils d'assignation par événement
+- **Mode dashboard** : sidebar joueurs + phase principale côte à côte
+- **Historique de partie** : panneau récapitulatif des actions et morts par nuit
+- **Tirage aléatoire** des rôles proportionnel au nombre de joueurs
 
-**Read the chat transcripts first.** There are 6 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+## Lancement
 
-**Read `project/MJ App.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+Aucune installation requise. L'application fonctionne entièrement dans le navigateur.
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+1. Cloner le dépôt :
+   ```bash
+   git clone https://github.com/TON_UTILISATEUR/loup-garou-mj.git
+   cd loup-garou-mj
+   ```
 
-## About the design files
+2. Ouvrir `index.html` dans un navigateur :
+   ```bash
+   # Option A — double-clic sur index.html
+   # Option B — serveur local (recommandé pour les sons)
+   npx serve .
+   # ou
+   python3 -m http.server 8080
+   ```
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+3. Accéder à `http://localhost:8080` (si serveur local)
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+> **Note :** Pour utiliser les sons, il est recommandé d'ouvrir le fichier via un serveur local (certains navigateurs bloquent les requêtes audio depuis `file://`).
 
-## Bundle contents
+## Structure
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `mj` project files (HTML prototypes, assets, components)
+```
+├── index.html              # Point d'entrée
+├── js/
+│   └── gameData.js         # Données des rôles, ordre de nuit, conditions de victoire
+└── jsx/
+    ├── AppContext.jsx       # État global (React Context + useReducer)
+    ├── App.jsx              # Routeur principal
+    ├── HomeScreen.jsx       # Écran d'accueil
+    ├── RoleConfig.jsx       # Assignation des rôles
+    ├── AssignScreen.jsx     # Noms des joueurs + révélation secrète
+    ├── NightPhase.jsx       # Phase nuit
+    ├── DayPhase.jsx         # Aube, vote, chasseur, victoire
+    ├── GameScreen.jsx       # Wrapper de jeu (header, historique, dashboard)
+    └── SoundConfigModal.jsx # Gestion des sons
+```
+
+## Stack technique
+
+- **React 18.3.1** via CDN (pas de build nécessaire)
+- **Babel Standalone 7.29.0** pour la transpilation JSX en navigateur
+- **Styles inline** avec variables CSS (thème sombre)
+- **Polices** : Cinzel, Crimson Text, JetBrains Mono (Google Fonts)
+- **Web Audio** via éléments `<audio>` et dataURL (localStorage)
+
+## Joueurs
+
+4 à 25 joueurs.
