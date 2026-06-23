@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MJ — Maître du Jeu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #06030a;
+      --bg2:          #0c0512;
+      --surface:      rgba(16, 6, 24, 0.96);
+      --border:       rgba(180, 30, 60, 0.18);
+      --border-hi:    rgba(180, 30, 60, 0.5);
+      --red:          #c41e3a;
+      --red-light:    #e03050;
+      --red-dark:     #8b0000;
+      --gold:         #d4a017;
+      --gold-light:   #f0c040;
+      --text:         #f5efe8;
+      --text-muted:   rgba(245, 239, 232, 0.78);
+      --text-dim:     rgba(245, 239, 232, 0.5);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--bg); height: 100%; }
+
+    body {
+      width: 100%;
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      overflow: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle noise texture */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* The app keeps a fixed-height shell on adequate screens, but never
+       crushes below a minimum canvas — when the viewport is smaller, the
+       page scrolls (vertically, and horizontally if needed) instead of
+       clipping or overlapping content. */
+    #root {
+      width: 100%;
+      min-width: 300px;
+      height: 100dvh;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar { width: 3px; height: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--red-dark); border-radius: 2px; }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(196,30,58,0.25); }
+      50%       { box-shadow: 0 0 40px rgba(196,30,58,0.55); }
+    }
+
+    .fade-up { animation: fadeUp 0.35s ease forwards; }
+
+    /* Form elements */
+    button { -webkit-tap-highlight-color: transparent; outline: none; }
+    input  { caret-color: var(--red); }
+    input::placeholder { color: var(--text-dim); }
+    input:focus { outline: none; }
+
+    /* Range input */
+    input[type="range"] { cursor: pointer; }
+    input[type="range"]::-webkit-slider-thumb { accent-color: var(--red); }
+
+    /* Hide number input spinners */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type="number"] { -moz-appearance: textfield; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+    integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+    integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+    integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Game data (vanilla JS) -->
+  <script src="js/gameData.js"></script>
+
+  <!-- React components — order matters (each exports to window) -->
+  <script type="text/babel" src="jsx/AppContext.jsx"></script>
+  <script type="text/babel" src="jsx/SoundConfigModal.jsx"></script>
+  <script type="text/babel" src="jsx/HomeScreen.jsx"></script>
+  <script type="text/babel" src="jsx/RoleConfig.jsx"></script>
+  <script type="text/babel" src="jsx/AssignScreen.jsx"></script>
+  <script type="text/babel" src="jsx/NightPhase.jsx"></script>
+  <script type="text/babel" src="jsx/DayPhase.jsx"></script>
+  <script type="text/babel" src="jsx/GameScreen.jsx"></script>
+  <script type="text/babel" src="jsx/App.jsx"></script>
+</body>
+</html>
