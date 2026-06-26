@@ -20,7 +20,9 @@
   },
   "devDependencies": {
     "@mj/tsconfig": "workspace:*",
+    "@serwist/next": "^9.0.11",
     "@tailwindcss/postcss": "^4.0.0",
+    "serwist": "^9.0.11",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "postcss": "^8.4.49",

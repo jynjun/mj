@@ -470,6 +470,10 @@ function reduce(state: GameState, action: Action, deps: EngineDeps): GameState {
       if (state.nightCount === 1) return { ...state, screen: 'playerRoleAssign' };
       return { ...state, gamePhase: 'day', nightVictimId: null, selectedPlayerId: null };
 
+    case 'LOAD_STATE':
+      // Reprise d'une partie sauvegardee : remplace l'etat (cf. sauvegarde/reprise).
+      return action.state;
+
     case 'RESET_GAME':
       return makeInitialState(deps);
 
@@ -485,5 +489,8 @@ function reduce(state: GameState, action: Action, deps: EngineDeps): GameState {
  */
 export function gameReducer(state: GameState, action: Action, deps: EngineDeps = defaultDeps): GameState {
   const next = reduce(state, action, deps);
-  return next === state ? state : { ...next, updatedAt: deps.now() };
+  if (next === state) return state;
+  // La reprise conserve l'updatedAt de la sauvegarde ; sinon on estampille.
+  if (action.type === 'LOAD_STATE') return next;
+  return { ...next, updatedAt: deps.now() };
 }

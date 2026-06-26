@@ -57,6 +57,18 @@ export default function PlayPage() {
         >
           {saved ? 'Sauvegarde ✓' : 'Sauvegarder'}
         </button>
+        <button
+          className="rounded border border-parchment/30 px-3 py-1.5 hover:bg-parchment/10"
+          onClick={async () => {
+            const list = await persistence.listGames();
+            const latest = list.find((g) => g.id !== state.id) ?? list[0];
+            if (!latest) return;
+            const game = await persistence.loadGame(latest.id);
+            if (game) dispatch({ type: 'LOAD_STATE', state: game });
+          }}
+        >
+          Reprendre
+        </button>
       </section>
 
       <p className="font-mono text-sm text-parchment/50">

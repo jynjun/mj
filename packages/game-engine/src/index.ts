@@ -8,6 +8,7 @@ export const ENGINE_NAME = '@mj/game-engine' as const;
 export * from './types';
 export { SCHEMA_VERSION, makeInitialState } from './state';
 export { gameReducer } from './reducer';
+export { serializeGame, deserializeGame } from './serialize';
 export {
   GAMES_LIST,
   ROLES_DATA,

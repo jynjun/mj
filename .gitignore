@@ -5,6 +5,11 @@ node_modules/
 # Builds
 .next/
 next-env.d.ts
+
+# Serwist (PWA) - service worker genere
+apps/web/public/sw.js
+apps/web/public/sw.js.map
+apps/web/public/swe-worker-*.js
 out/
 dist/
 build/

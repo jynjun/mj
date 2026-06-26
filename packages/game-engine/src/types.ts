@@ -210,4 +210,5 @@ export type Action =
   | { type: 'TIMER_TICK' }
   | { type: 'SET_LAYOUT'; mode: LayoutMode }
   | { type: 'BACK_FROM_NIGHT' }
+  | { type: 'LOAD_STATE'; state: GameState }
   | { type: 'RESET_GAME' };
