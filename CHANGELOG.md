@@ -4,6 +4,11 @@ Format base sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versio
 
 ## [Non publie]
 
+## [0.1.0] - 2026-06-26
+
+Première version de la refonte : monorepo complet, moteur testé, app web jouable
+(PWA), vitrine SEO et base desktop.
+
 ### Ajoute
 
 - Parite UI (phase 2) : portage des ecrans du SPA legacy dans `@mj/ui` (Home,
