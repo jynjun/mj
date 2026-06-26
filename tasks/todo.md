@@ -31,9 +31,19 @@ Plan complet : `tasks/plan-refonte.md`. Strategie Git : une branche par phase me
 - [x] Tests Vitest : 8 cas `checkWinConditions`, 7 cas `computeNightOrder`, 3 cas `cascadeDeaths`, 8 scenarios reducer, 3 amorces -> **29 verts**
 - [ ] Commit + push `feature/phase-1-moteur`, puis merge dans `develop`
 
-## Phases 2-5
+## Phase 2 - App web (`feature/phase-2-app-web`) - EN COURS
 
-- Phase 2 : `apps/web` (parite + theme Tailwind/shadcn), `packages/storage` (IndexedDB, migration sons), `packages/sound-config`
+- [x] `packages/storage` : `PersistencePort` + `MemoryAdapter` + `IndexedDBAdapter` (idb) + `selectAdapter`, blobs audio (4 tests)
+- [x] `packages/sound-config` : donnees son (hors moteur) + `getProfileAssignments` + `resolveEventSound` (4 tests)
+- [x] `packages/ui` : `GameProvider`/`useGame` (reducer du moteur + minuteur) + `StorageProvider`/`usePersistence`
+- [x] `apps/web` : theme Tailwind v4 (tokens legacy : sombre, rouge sang, Cinzel/Crimson/JetBrains), providers, route `/play` cablee au moteur + persistance
+- [x] Verifs : 37 tests verts, typecheck/lint/build/export desktop OK
+- [ ] RESTE : portage complet des composants `NightPhase`/`DayPhase`/`GameScreen`/`AssignScreen` legacy dans `@mj/ui` (parite fonctionnelle, ~800 l.) - a faire avec verification visuelle
+- [ ] RESTE : migration effective des sons importes vers IndexedDB dans l'UI (modale son) + primitives shadcn/ui
+- [ ] Commit + push, merge dans `develop`
+
+## Phases 3-5
+
 - Phase 3 : PWA Serwist (offline, sauvegarde/reprise)
 - Phase 4 : vitrine SSG `(marketing)` + SEO (sitemap/robots/OG/JSON-LD)
 - Phase 5 : `apps/desktop` Electron complet (ElectronFsAdapter, electron-builder par OS, "A propos")

@@ -6,6 +6,14 @@ Format base sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versio
 
 ### Ajoute
 
+- `@mj/storage` (phase 2) : `PersistencePort` local-first + adapters `IndexedDB` (blobs
+  audio, leve la contrainte musique) et `Memory` (tests/SSR), `selectAdapter`.
+- `@mj/sound-config` (phase 2) : donnees son sorties du moteur, `getProfileAssignments`,
+  `resolveEventSound` (resolution pure eventId -> source).
+- `@mj/ui` (phase 2) : contextes React `GameProvider`/`useGame` (reducer du moteur +
+  minuteur) et `StorageProvider`/`usePersistence`.
+- `apps/web` (phase 2) : theme Tailwind v4 portant les tokens legacy (sombre, rouge sang,
+  Cinzel/Crimson/JetBrains Mono), providers au root, route `/play` cablee au moteur.
 - Moteur de jeu `@mj/game-engine` (phase 1) : portage TS pur du SPA legacy. Types,
   donnees (`ROLES_DATA`/`NIGHT_ORDER_BASE`/`TEAM_INFO`), regles pures
   (`checkWinConditions`, `computeNightOrder`, `cascadeDeaths`, `getRandomRolePool`),
