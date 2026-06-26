@@ -6,6 +6,11 @@ Format base sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versio
 
 ### Ajoute
 
+- Parite UI (phase 2) : portage des ecrans du SPA legacy dans `@mj/ui` (Home,
+  assignation des roles, distribution secrete, NightPhase, aube/jour/vote/chasseur/
+  victoire, GameScreen + historique, modale son). `/play` rend l'application complete.
+- Couche son `SoundProvider`/`useSound` : configuration en localStorage, fichiers
+  audio importes stockes en IndexedDB (migration son effective, fini les dataURL).
 - Desktop Electron (phase 5) : `ElectronFsAdapter` + contrat `MjNativeBridge`
   (musique et parties en fichiers natifs via IPC preload/main), `selectAdapter`
   prefere le natif. Version centralisee (apps/desktop/package.json 0.1.0) +

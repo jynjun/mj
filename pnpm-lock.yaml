@@ -165,6 +165,9 @@ importers:
       '@mj/game-engine':
         specifier: workspace:*
         version: link:../game-engine
+      '@mj/sound-config':
+        specifier: workspace:*
+        version: link:../sound-config
       '@mj/storage':
         specifier: workspace:*
         version: link:../storage
