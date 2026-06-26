@@ -6,6 +6,10 @@ Format base sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versio
 
 ### Ajoute
 
+- Desktop Electron (phase 5) : `ElectronFsAdapter` + contrat `MjNativeBridge`
+  (musique et parties en fichiers natifs via IPC preload/main), `selectAdapter`
+  prefere le natif. Version centralisee (apps/desktop/package.json 0.1.0) +
+  `scripts/sync-version.mjs` -> `apps/web/lib/version.ts`, page `/a-propos`.
 - Vitrine SEO (phase 4) : route groups `(marketing)` (SSG) / `(app)` (noindex sur /play).
   Pages roles generees depuis le moteur (`/roles`, `/roles/[id]`), page `/regles` avec FAQ.
   `sitemap.xml`, `robots.txt` (disallow /play), metadata + OpenGraph, JSON-LD

@@ -1,6 +1,6 @@
 {
   "name": "@mj/desktop",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "MJ App Desktop (Electron) - reutilise l'export statique de @mj/web",
   "main": "dist/main.js",
@@ -11,6 +11,8 @@
     "start": "electron ."
   },
   "devDependencies": {
+    "@mj/game-engine": "workspace:*",
+    "@mj/storage": "workspace:*",
     "@mj/tsconfig": "workspace:*",
     "electron": "^33.2.1",
     "electron-builder": "^25.1.8",

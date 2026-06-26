@@ -15,6 +15,7 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
+    "sync-version": "node scripts/sync-version.mjs",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,mjs}\""
   },
   "devDependencies": {

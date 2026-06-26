@@ -9,6 +9,8 @@ export type {
   AssetMeta,
 } from './types';
 export { toSavedGameMeta, toAssetMeta } from './types';
+export type { MjNativeBridge, AssetMetaInput } from './native';
 export { MemoryAdapter } from './adapters/memory';
 export { IndexedDBAdapter } from './adapters/indexeddb';
+export { ElectronFsAdapter } from './adapters/electron-fs';
 export { selectAdapter } from './select';
