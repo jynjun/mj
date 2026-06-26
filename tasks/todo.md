@@ -22,11 +22,14 @@ Plan complet : `tasks/plan-refonte.md`. Strategie Git : une branche par phase me
 - Packages `storage`, `sound-config`, `ui` : crees en phase 2 (eviter le code mort).
 - POC Electron : validation GUI reelle reportee (impossible en environnement headless) -> phase 5.
 
-## Phase 1 - Moteur TS (`feature/phase-1-moteur`)
+## Phase 1 - Moteur TS (`feature/phase-1-moteur`) - EN COURS
 
-- [ ] Porter `types`, `roles.data`, `rules/*` (winConditions, nightOrder, cascade, rolePool), `reducer`, `state`, `rng`
-- [ ] Corriger incoherences : ajouter `IDIOT` a ROLES_DATA, formaliser `ancienPowerLost`
-- [ ] Tests Vitest : 8 cas `checkWinConditions`, 7 cas `computeNightOrder`, `cascadeDeaths`, snapshots reducer
+- [x] Porter `types`, `data/roles`, `rules/*` (winConditions, nightOrder, cascade, rolePool), `reducer`, `state`, `rng`
+- [x] Corriger incoherences : ajout `IDIOT` a ROLES_DATA, formalisation `ancienPowerLost`
+- [x] Sortir le son du moteur (couche app/phase 2) ; etat serialisable (id/schemaVersion/updatedAt)
+- [x] Injection aleatoire/temps (`EngineDeps`, `createTestDeps`) pour snapshots stables
+- [x] Tests Vitest : 8 cas `checkWinConditions`, 7 cas `computeNightOrder`, 3 cas `cascadeDeaths`, 8 scenarios reducer, 3 amorces -> **29 verts**
+- [ ] Commit + push `feature/phase-1-moteur`, puis merge dans `develop`
 
 ## Phases 2-5
 

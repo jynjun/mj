@@ -1,15 +1,26 @@
 import { describe, expect, it } from 'vitest';
-import { ENGINE_NAME, SCHEMA_VERSION } from './index.js';
+import { ENGINE_NAME, ROLES_DATA, SCHEMA_VERSION, makeInitialState } from './index';
+import { createTestDeps } from './rng';
 
-// Test d'amorce de la phase 0 : prouve que le pipeline Vitest + Turbo est vert.
-// Les vrais tests du moteur (8 cas checkWinConditions, 7 cas computeNightOrder,
-// cascadeDeaths, snapshots reducer) arrivent en phase 1.
-describe('@mj/game-engine (scaffold phase 0)', () => {
+describe('@mj/game-engine (amorce)', () => {
   it('expose un nom de moteur stable', () => {
     expect(ENGINE_NAME).toBe('@mj/game-engine');
   });
 
-  it('expose une version de schema >= 1', () => {
-    expect(SCHEMA_VERSION).toBeGreaterThanOrEqual(1);
+  it('inclut les 22 roles du legacy + IDIOT (23 au total)', () => {
+    expect(Object.keys(ROLES_DATA)).toHaveLength(23);
+    expect(ROLES_DATA.IDIOT.team).toBe('village');
+  });
+
+  it('makeInitialState : serialisable, sans son, avec id/schema/updatedAt', () => {
+    const s = makeInitialState(createTestDeps());
+    expect(s.schemaVersion).toBe(SCHEMA_VERSION);
+    expect(s.id).toBeTypeOf('string');
+    expect(s.ancienPowerLost).toBe(false);
+    // Aucun champ son ne doit subsister dans le moteur.
+    expect(s).not.toHaveProperty('soundLibrary');
+    expect(s).not.toHaveProperty('soundEnabled');
+    // Etat entierement serialisable (pas de fonctions/refs).
+    expect(() => JSON.parse(JSON.stringify(s))).not.toThrow();
   });
 });
