@@ -6,6 +6,9 @@ Format base sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versio
 
 ### Ajoute
 
+- PWA (phase 3) : service worker Serwist (`@serwist/next`), `manifest.webmanifest`
+  installable + icone, SW desactive cote desktop. Sauvegarde/reprise de partie :
+  `serializeGame`/`deserializeGame` + action `LOAD_STATE` du moteur, bouton "Reprendre".
 - `@mj/storage` (phase 2) : `PersistencePort` local-first + adapters `IndexedDB` (blobs
   audio, leve la contrainte musique) et `Memory` (tests/SSR), `selectAdapter`.
 - `@mj/sound-config` (phase 2) : donnees son sorties du moteur, `getProfileAssignments`,

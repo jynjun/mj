@@ -42,8 +42,16 @@ Plan complet : `tasks/plan-refonte.md`. Strategie Git : une branche par phase me
 - [ ] RESTE : migration effective des sons importes vers IndexedDB dans l'UI (modale son) + primitives shadcn/ui
 - [ ] Commit + push, merge dans `develop`
 
-## Phases 3-5
+## Phase 3 - PWA (`feature/phase-3-pwa`) - EN COURS
 
-- Phase 3 : PWA Serwist (offline, sauvegarde/reprise)
+- [x] Serwist (`@serwist/next`) : `app/sw.ts`, `withSerwist` dans next.config, SW desactive en desktop
+- [x] `app/manifest.ts` (installable, `force-static` pour l'export desktop) + icone SVG
+- [x] Sauvegarde/reprise : `serializeGame`/`deserializeGame` (moteur) + action `LOAD_STATE` ; bouton "Reprendre" (UI) via `@mj/storage`
+- [x] Verifs : 40 tests verts, build web (sw.js + manifest.webmanifest), export desktop propre (sans SW)
+- [ ] RESTE : verification Lighthouse PWA / offline reel (necessite navigateur)
+- [ ] Commit + push, merge dans `develop`
+
+## Phases 4-5
+
 - Phase 4 : vitrine SSG `(marketing)` + SEO (sitemap/robots/OG/JSON-LD)
 - Phase 5 : `apps/desktop` Electron complet (ElectronFsAdapter, electron-builder par OS, "A propos")
