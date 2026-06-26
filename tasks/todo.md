@@ -38,8 +38,10 @@ Plan complet : `tasks/plan-refonte.md`. Strategie Git : une branche par phase me
 - [x] `packages/ui` : `GameProvider`/`useGame` (reducer du moteur + minuteur) + `StorageProvider`/`usePersistence`
 - [x] `apps/web` : theme Tailwind v4 (tokens legacy : sombre, rouge sang, Cinzel/Crimson/JetBrains), providers, route `/play` cablee au moteur + persistance
 - [x] Verifs : 37 tests verts, typecheck/lint/build/export desktop OK
-- [ ] RESTE : portage complet des composants `NightPhase`/`DayPhase`/`GameScreen`/`AssignScreen` legacy dans `@mj/ui` (parite fonctionnelle, ~800 l.) - a faire avec verification visuelle
-- [ ] RESTE : migration effective des sons importes vers IndexedDB dans l'UI (modale son) + primitives shadcn/ui
+- [x] Portage complet des composants legacy dans `@mj/ui` : Home, PlayerRoleAssign (+RolePicker), AssignScreen, NightPhase, DayPhase/Dawn/Vote/Hunter/Victory, GameScreen (+historique), SoundConfigModal, AppRoot
+- [x] Couche son `SoundProvider`/`useSound` : config legere (localStorage) + blobs audio en IndexedDB (migration son effective)
+- [x] `/play` rend l'app complete ; verifie via Playwright (home -> assignation -> distribution -> NUIT 1, 0 erreur) + rendu visuel conforme
+- [ ] RESTE (optionnel) : profils son multiples (simplifie en assignations directes), primitives shadcn/ui, edition des noms de joueurs
 - [ ] Commit + push, merge dans `develop`
 
 ## Phase 3 - PWA (`feature/phase-3-pwa`) - EN COURS

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@mj/game-engine": "workspace:*",
+    "@mj/sound-config": "workspace:*",
     "@mj/storage": "workspace:*"
   },
   "peerDependencies": {

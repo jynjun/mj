@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 import type { ReactNode } from 'react';
-import { GameProvider, StorageProvider } from '@mj/ui';
+import { GameProvider, SoundProvider, StorageProvider } from '@mj/ui';
 import { selectAdapter } from '@mj/storage';
 
 /**
@@ -13,7 +13,9 @@ export function Providers({ children }: { children: ReactNode }) {
   const adapter = useMemo(() => selectAdapter(), []);
   return (
     <StorageProvider adapter={adapter}>
-      <GameProvider>{children}</GameProvider>
+      <GameProvider>
+        <SoundProvider>{children}</SoundProvider>
+      </GameProvider>
     </StorageProvider>
   );
 }
