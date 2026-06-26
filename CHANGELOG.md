@@ -6,6 +6,10 @@ Format base sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versio
 
 ### Ajoute
 
+- Vitrine SEO (phase 4) : route groups `(marketing)` (SSG) / `(app)` (noindex sur /play).
+  Pages roles generees depuis le moteur (`/roles`, `/roles/[id]`), page `/regles` avec FAQ.
+  `sitemap.xml`, `robots.txt` (disallow /play), metadata + OpenGraph, JSON-LD
+  (SoftwareApplication, FAQPage, Article).
 - PWA (phase 3) : service worker Serwist (`@serwist/next`), `manifest.webmanifest`
   installable + icone, SW desactive cote desktop. Sauvegarde/reprise de partie :
   `serializeGame`/`deserializeGame` + action `LOAD_STATE` du moteur, bouton "Reprendre".

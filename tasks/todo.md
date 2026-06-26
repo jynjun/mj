@@ -51,7 +51,16 @@ Plan complet : `tasks/plan-refonte.md`. Strategie Git : une branche par phase me
 - [ ] RESTE : verification Lighthouse PWA / offline reel (necessite navigateur)
 - [ ] Commit + push, merge dans `develop`
 
-## Phases 4-5
+## Phase 4 - SEO / vitrine (`feature/phase-4-seo-vitrine`) - EN COURS
 
-- Phase 4 : vitrine SSG `(marketing)` + SEO (sitemap/robots/OG/JSON-LD)
+- [x] Route groups `(marketing)` (SSG) et `(app)` (noindex sur /play)
+- [x] Pages roles generees depuis `@mj/game-engine` : `/roles` + `/roles/[id]` (23 pages SSG)
+- [x] `/regles` avec FAQ ; JSON-LD SoftwareApplication (accueil), FAQPage (regles), Article (role)
+- [x] `sitemap.ts` (vitrine + roles), `robots.ts` (disallow /play) ; metadata + OpenGraph
+- [x] Verifs : 40 tests verts, build web + export desktop (toutes routes force-static), robots/sitemap corrects
+- [ ] RESTE : OG images dynamiques par role via next/og (reportees : risque export statique) ; Lighthouse SEO reel
+- [ ] Commit + push, merge dans `develop`
+
+## Phase 5
+
 - Phase 5 : `apps/desktop` Electron complet (ElectronFsAdapter, electron-builder par OS, "A propos")
