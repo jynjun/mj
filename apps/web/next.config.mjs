@@ -9,7 +9,7 @@ const isDesktop = process.env.BUILD_TARGET === 'desktop';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@mj/game-engine'],
+  transpilePackages: ['@mj/game-engine', '@mj/ui', '@mj/storage', '@mj/sound-config'],
   ...(isDesktop
     ? {
         output: 'export',

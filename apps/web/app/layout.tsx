@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import './globals.css';
+import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: 'MJ App - assistant Maitre du Jeu Loup-Garou',
@@ -10,7 +12,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
