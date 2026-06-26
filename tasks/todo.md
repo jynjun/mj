@@ -61,6 +61,18 @@ Plan complet : `tasks/plan-refonte.md`. Strategie Git : une branche par phase me
 - [ ] RESTE : OG images dynamiques par role via next/og (reportees : risque export statique) ; Lighthouse SEO reel
 - [ ] Commit + push, merge dans `develop`
 
-## Phase 5
+## Phase 5 - Desktop Electron (`feature/phase-5-desktop`) - EN COURS
 
-- Phase 5 : `apps/desktop` Electron complet (ElectronFsAdapter, electron-builder par OS, "A propos")
+- [x] `ElectronFsAdapter` (@mj/storage) + contrat `MjNativeBridge` ; `selectAdapter` prefere le natif
+- [x] Preload : `window.mjNative` implemente le contrat (IPC) ; Main : handlers FS (parties JSON + musiques en fichiers, userData)
+- [x] Version centralisee (source : apps/desktop/package.json 0.1.0) + `scripts/sync-version.mjs` -> `apps/web/lib/version.ts` ; page `/a-propos`
+- [x] Verifs : 42 tests verts (dont ElectronFsAdapter), typecheck/lint/build, desktop tsc (main.js/preload.js), export desktop OK
+- [ ] RESTE (non headless) : `electron-builder` par OS (binaire ; electron non telecharge ici), lancement GUI reel, electron-updater optionnel
+- [ ] Commit + push, merge dans `develop`
+
+## Reste transverse (a faire avec verification visuelle)
+
+- Portage des composants UI legacy (NightPhase/DayPhase/GameScreen/AssignScreen) dans `@mj/ui` (parite phase 2)
+- Migration UI de la modale son vers IndexedDB + primitives shadcn/ui
+- Validations Lighthouse (PWA, SEO) et offline reel ; build des binaires desktop
+- Release : merge develop -> main, tag SemVer, mise a jour version/README/CHANGELOG

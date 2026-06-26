@@ -41,6 +41,12 @@ importers:
 
   apps/desktop:
     devDependencies:
+      '@mj/game-engine':
+        specifier: workspace:*
+        version: link:../../packages/game-engine
+      '@mj/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
       '@mj/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig

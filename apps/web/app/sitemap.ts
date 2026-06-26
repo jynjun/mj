@@ -5,7 +5,7 @@ export const dynamic = 'force-static';
 
 /** Plan du site : vitrine indexable (les roles viennent du moteur). /play exclu. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ['', '/roles', '/regles'].map((path) => ({
+  const staticPages = ['', '/roles', '/regles', '/a-propos'].map((path) => ({
     url: `${SITE_URL}${path}`,
     changeFrequency: 'monthly' as const,
     priority: path === '' ? 1 : 0.8,
