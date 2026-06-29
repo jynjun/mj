@@ -6,7 +6,7 @@ function PlayerNamesScreen() {
   return (
     <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',overflow:'hidden'}}>
       <div style={{padding:'14px 18px 12px',borderBottom:'1px solid rgba(180,30,60,0.15)',display:'flex',alignItems:'center',gap:'12px',flexShrink:0}}>
-        <button onClick={function(){dispatch({type:'SET_SCREEN',screen:'roleConfig'});}} style={{background:'transparent',border:'none',color:'var(--text-muted)',cursor:'pointer',fontSize:'20px',padding:'4px'}}>←</button>
+        <button onClick={function(){dispatch({type:'SET_SCREEN',screen:'playerRoleAssign'});}} style={{background:'transparent',border:'none',color:'var(--text-muted)',cursor:'pointer',fontSize:'20px',padding:'4px'}}>←</button>
         <div>
           <div style={{fontFamily:"'Cinzel',serif",fontSize:'15px',fontWeight:600,color:'var(--text)'}}>Noms des joueurs</div>
           <div style={{fontSize:'13px',color:'var(--text-muted)',fontFamily:"'Crimson Text',serif",marginTop:'2px'}}>Optionnel — modifiez ou gardez les noms par défaut</div>
@@ -25,7 +25,7 @@ function PlayerNamesScreen() {
         })}
       </div>
       <div style={{padding:'12px 14px 20px',borderTop:'1px solid rgba(180,30,60,0.15)',flexShrink:0}}>
-        <button onClick={function(){dispatch({type:'SHUFFLE_ROLES'});dispatch({type:'SET_SCREEN',screen:'assign'});}}
+        <button onClick={function(){dispatch({type:'SET_ASSIGN_INDEX',index:0});dispatch({type:'SET_SCREEN',screen:'assign'});}}
           style={{width:'100%',padding:'14px',background:'var(--red)',border:'none',borderRadius:'10px',cursor:'pointer',fontFamily:"'Cinzel',serif",fontSize:'13px',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'#fff'}}>
           Distribuer les rôles →
         </button>

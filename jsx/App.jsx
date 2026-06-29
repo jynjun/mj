@@ -11,6 +11,7 @@ function AppContent() {
     <div style={{ width:'100%', height:'100%', position:'relative' }}>
       {state.screen === 'home'             && React.createElement(HomeScreen, null)}
       {state.screen === 'playerRoleAssign' && React.createElement(PlayerRoleAssign, null)}
+      {state.screen === 'playerNames'      && React.createElement(PlayerNamesScreen, null)}
       {state.screen === 'assign'           && React.createElement(AssignScreen, null)}
       {state.screen === 'game'             && React.createElement(GameScreen, null)}
       {state.showSoundModal                && React.createElement(SoundConfigModal, null)}

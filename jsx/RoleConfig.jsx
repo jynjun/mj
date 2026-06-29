@@ -85,10 +85,10 @@ function PlayerRoleAssign() {
             Corrigez l'avertissement avant de continuer
           </div>
         )}
-        <button onClick={function(){dispatch({type:'START_GAME'});}}
+        <button onClick={function(){dispatch({type:'SET_SCREEN',screen:'playerNames'});}}
           disabled={enfantWarning}
           style={{width:'100%',padding:'14px',background:enfantWarning?'rgba(60,20,28,0.5)':'var(--red)',border:'1px solid '+(enfantWarning?'rgba(180,30,60,0.18)':'transparent'),borderRadius:'10px',cursor:enfantWarning?'not-allowed':'pointer',fontFamily:"'Cinzel',serif",fontSize:'13px',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:enfantWarning?'var(--text-dim)':'#fff',transition:'all 0.2s',boxShadow:enfantWarning?'none':'0 0 30px rgba(196,30,58,0.25)'}}>
-          Commencer la partie →
+          Continuer →
         </button>
       </div>
 
