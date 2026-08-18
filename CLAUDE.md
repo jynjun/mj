@@ -48,7 +48,6 @@ Phases de jeu (`gamePhase`) : `night` → `dawn` → `day` → `vote` → [`hunt
 
 ### Incohérences connues dans le code actuel (à corriger lors de la refonte)
 
-- `IDIOT` utilisé dans `ELIMINATE_PLAYER` (AppContext:199) mais absent de `ROLES_DATA`.
 - `ancienPowerLost` lu/écrit (AppContext:227) mais jamais initialisé dans `makeInitial()`.
 
 ### Sons

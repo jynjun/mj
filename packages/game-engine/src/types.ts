@@ -3,7 +3,7 @@
  * jsx/AppContext.jsx). Aucune dependance React/DOM. Etat serialisable.
  */
 
-/** Les 22 roles du SPA + IDIOT (utilise dans ELIMINATE_PLAYER mais absent du legacy). */
+/** Les 22 roles du SPA. */
 export type RoleId =
   | 'VILLAGEOIS'
   | 'VOYANTE'
@@ -26,8 +26,7 @@ export type RoleId =
   | 'LOUP_GAROU'
   | 'GRAND_MECHANT_LOUP'
   | 'LOUP_BLANC'
-  | 'JOUEUR_FLUTE'
-  | 'IDIOT';
+  | 'JOUEUR_FLUTE';
 
 export type Team = 'village' | 'loupgarou' | 'loupblanc' | 'solitaire';
 
@@ -74,7 +73,6 @@ export interface Player {
   cursed: boolean;
   /** id de l'amoureux lie, ou null. */
   lovers: number | null;
-  idiotRevealed: boolean;
   enchanted: boolean;
   /** Modele de l'Enfant Sauvage. */
   model: number | null;

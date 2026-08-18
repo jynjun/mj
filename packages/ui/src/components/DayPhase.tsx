@@ -199,7 +199,7 @@ export function DayPhase() {
 export function VotePhase() {
   const { state, dispatch } = useGame();
   const { playSound } = useSound();
-  const eligible = state.players.filter((p) => p.alive && !p.idiotRevealed);
+  const eligible = state.players.filter((p) => p.alive);
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       <div style={{ padding: '12px 16px', borderBottom: '1px solid rgba(180,30,60,0.12)', flexShrink: 0, textAlign: 'center' }}>

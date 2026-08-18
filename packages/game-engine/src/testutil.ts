@@ -11,7 +11,6 @@ export function mkPlayer(id: number, role: RoleId, overrides: Partial<Player> = 
     protected: false,
     cursed: false,
     lovers: null,
-    idiotRevealed: false,
     enchanted: false,
     model: null,
     elderLifeUsed: false,

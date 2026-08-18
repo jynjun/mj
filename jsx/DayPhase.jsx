@@ -219,7 +219,7 @@ function DayPhase() {
 
 function VotePhase() {
   const { state, dispatch, playSound } = useGame();
-  var eligible = state.players.filter(function(p){return p.alive&&!p.idiotRevealed;});
+  var eligible = state.players.filter(function(p){return p.alive;});
   return (
     <div style={{flex:1,display:'flex',flexDirection:'column',overflow:'hidden'}}>
       <div style={{padding:'12px 16px',borderBottom:'1px solid rgba(180,30,60,0.12)',flexShrink:0,textAlign:'center'}}>

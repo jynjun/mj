@@ -7,9 +7,8 @@ describe('@mj/game-engine (amorce)', () => {
     expect(ENGINE_NAME).toBe('@mj/game-engine');
   });
 
-  it('inclut les 22 roles du legacy + IDIOT (23 au total)', () => {
-    expect(Object.keys(ROLES_DATA)).toHaveLength(23);
-    expect(ROLES_DATA.IDIOT.team).toBe('village');
+  it('inclut les 22 roles du legacy', () => {
+    expect(Object.keys(ROLES_DATA)).toHaveLength(22);
   });
 
   it('makeInitialState : serialisable, sans son, avec id/schema/updatedAt', () => {

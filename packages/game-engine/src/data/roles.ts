@@ -188,14 +188,6 @@ export const ROLES_DATA: Record<RoleId, Role> = {
     nightOrder: 65, notBeforeNight: 2, category: 'Solitaire',
     nightInstruction: 'Le Joueur de Flute enchante des joueurs en les touchant (les yeux fermes).',
   },
-  // --- AJOUT : IDIOT (utilise dans ELIMINATE_PLAYER, absent du legacy) ------
-  IDIOT: {
-    id: 'IDIOT', name: 'Idiot du Village', plural: 'Idiot du Village',
-    team: 'village', emoji: '\u{1F921}',
-    color: '#fbbf24', bgColor: 'rgba(251,191,36,0.09)',
-    description: "S'il est designe par le vote, il est demasque mais survit (il perd alors son droit de vote).",
-    nightOrder: null, category: 'Village',
-  },
 } satisfies Record<RoleId, Role>;
 
 export const NIGHT_ORDER_BASE = [

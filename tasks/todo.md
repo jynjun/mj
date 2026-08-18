@@ -72,6 +72,12 @@ Plan complet : `tasks/plan-refonte.md`. Strategie Git : une branche par phase me
 - [ ] RESTE (non headless) : `electron-builder` par OS (binaire ; electron non telecharge ici), lancement GUI reel, electron-updater optionnel
 - [ ] Commit + push, merge dans `develop`
 
+## Correctifs post-release
+
+- [x] Retirer le role `IDIOT` (jamais voulu dans les 22 roles ; cf. `tasks/lessons.md`
+      2026-08-18) : `@mj/game-engine` (types, roles.ts, reducer, testutil, tests),
+      `@mj/ui` (VotePhase), SPA legacy (AppContext, DayPhase), README, CLAUDE.md, CHANGELOG.
+
 ## Reste transverse (a faire avec verification visuelle)
 
 - Portage des composants UI legacy (NightPhase/DayPhase/GameScreen/AssignScreen) dans `@mj/ui` (parite phase 2)
