@@ -33,7 +33,6 @@ function reduce(state: GameState, action: Action, deps: EngineDeps): GameState {
         protected: false,
         cursed: false,
         lovers: null,
-        idiotRevealed: false,
         enchanted: false,
         model: null,
         elderLifeUsed: false,
@@ -162,14 +161,6 @@ function reduce(state: GameState, action: Action, deps: EngineDeps): GameState {
     case 'ELIMINATE_PLAYER': {
       const tgt = state.players.find((p) => p.id === action.playerId);
       if (!tgt) return state;
-      if (tgt.role === 'IDIOT' && !tgt.idiotRevealed) {
-        return {
-          ...state,
-          players: state.players.map((p) =>
-            p.id === action.playerId ? { ...p, idiotRevealed: true, revealed: true } : p,
-          ),
-        };
-      }
       const dr: Death = { id: deps.nextId(), playerId: action.playerId, cause: 'lynch', night: state.nightCount, phase: 'day' };
       let newPls = state.players.map((p) => (p.id === action.playerId ? { ...p, alive: false, revealed: true } : p));
       // Ancien lynche par le village -> tous les villageois perdent leur pouvoir

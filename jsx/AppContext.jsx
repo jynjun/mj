@@ -82,7 +82,7 @@ function gameReducer(state, action) {
       }
       var ps = Array.from({ length: state.playerCount }, function(_, i) {
         return { id: i+1, name: 'Joueur '+(i+1), role: pool[i] || 'VILLAGEOIS',
-          alive: true, revealed: false, protected: false, cursed: false, lovers: null, idiotRevealed: false,
+          alive: true, revealed: false, protected: false, cursed: false, lovers: null,
           enchanted: false, model: null, elderLifeUsed: false, diggerRole: null };
       });
       return Object.assign({}, state, { players: ps });
@@ -196,11 +196,6 @@ function gameReducer(state, action) {
     case 'ELIMINATE_PLAYER': {
       var tgt = state.players.find(function(p) { return p.id === action.playerId; });
       if (!tgt) return state;
-      if (tgt.role === 'IDIOT' && !tgt.idiotRevealed) {
-        return Object.assign({}, state, {
-          players: state.players.map(function(p) { return p.id === action.playerId ? Object.assign({}, p, { idiotRevealed: true, revealed: true }) : p; })
-        });
-      }
       var dr = { id: Date.now() + Math.random(), playerId: action.playerId, cause: 'lynch', night: state.nightCount, phase: 'day' };
       var newPls = state.players.map(function(p) { return p.id === action.playerId ? Object.assign({}, p, { alive: false, revealed: true }) : p; });
       // Ancien lynché par le village → tous les villageois perdent leur pouvoir

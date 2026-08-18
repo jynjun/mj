@@ -4,6 +4,13 @@ Format base sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versio
 
 ## [Non publie]
 
+### Retire
+
+- Role `IDIOT` : retire du village (n'a jamais fait partie des 22 roles voulus ; la
+  reference residuelle dans `ELIMINATE_PLAYER` etait du code mort a supprimer, pas un
+  role a formaliser). Concerne `@mj/game-engine` (types, `ROLES_DATA`, reducer),
+  `@mj/ui` (VotePhase) et le SPA legacy (AppContext, DayPhase).
+
 ## [0.1.0] - 2026-06-26
 
 Première version de la refonte : monorepo complet, moteur testé, app web jouable

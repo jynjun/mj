@@ -10,7 +10,7 @@ des rôles, votes, conditions de victoire et sons d'ambiance. Fonctionne dans le
 
 - **22 rôles** : Villageois, Loups-Garous, Sorcière, Voyante, Chasseur, Cupidon, Fossoyeur,
   Joueur de Flûte, Loup Blanc, Ancien, Salvateur, Corbeau, Renard, Chien-Loup, Voleur,
-  Enfant Sauvage, Déménageur, Sœurs, Montreur d'Ours, Juge Bègue, Grand Méchant Loup, Idiot.
+  Enfant Sauvage, Déménageur, Sœurs, Montreur d'Ours, Juge Bègue, Grand Méchant Loup.
 - **Phase nuit** : ordre automatique, actions par rôle (attaque, potions, révélations,
   transformations, cascades de morts).
 - **Phase jour** : récap de l'aube, détection des victoires, vote et élimination.
