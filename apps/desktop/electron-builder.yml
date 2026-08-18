@@ -1,0 +1,22 @@
+# Packaging desktop (cf. tasks/plan-refonte.md, phase 5).
+# Phase 0 : config de reference, non executee.
+appId: com.mjapp.loupgarou
+productName: MJ App
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+extraResources:
+  # L'export statique de @mj/web est embarque et servi via app://
+  - from: ../web/out
+    to: web
+asar: true
+win:
+  target: nsis
+mac:
+  target: dmg
+  category: public.app-category.entertainment
+linux:
+  target: AppImage
+  category: Game

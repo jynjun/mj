@@ -1,0 +1,29 @@
+# Dependances
+node_modules/
+.pnpm-store/
+
+# Builds
+.next/
+next-env.d.ts
+
+# Serwist (PWA) - service worker genere
+apps/web/public/sw.js
+apps/web/public/sw.js.map
+apps/web/public/swe-worker-*.js
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# Turbo
+.turbo/
+
+# Electron
+apps/desktop/release/
+
+# Divers
+.DS_Store
+*.log
+.env
+.env.local
+coverage/

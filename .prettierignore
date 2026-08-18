@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+dist
+.turbo
+pnpm-lock.yaml
+# SPA legacy (reference a porter, non reformatee)
+js/
+jsx/
+index.html

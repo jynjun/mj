@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+/* Tokens du theme legacy (sombre, rouge sang, or) portes en tokens Tailwind v4. */
+@theme {
+  --color-bg: #06030a;
+  --color-bg2: #0c0512;
+  --color-surface: #100618;
+  --color-blood: #c41e3a;
+  --color-blood-light: #e03050;
+  --color-blood-dark: #8b0000;
+  --color-gold: #d4a017;
+  --color-gold-light: #f0c040;
+  --color-parchment: #f5efe8;
+
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Crimson Text', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Variables du theme legacy (utilisees par les composants portes de @mj/ui). */
+:root {
+  color-scheme: dark;
+  --bg: #06030a;
+  --bg2: #0c0512;
+  --surface: rgba(16, 6, 24, 0.96);
+  --border: rgba(180, 30, 60, 0.18);
+  --border-hi: rgba(180, 30, 60, 0.5);
+  --red: #c41e3a;
+  --red-light: #e03050;
+  --red-dark: #8b0000;
+  --gold: #d4a017;
+  --gold-light: #f0c040;
+  --text: #f5efe8;
+  --text-muted: rgba(245, 239, 232, 0.78);
+  --text-dim: rgba(245, 239, 232, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-parchment);
+  font-family: var(--font-body);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
